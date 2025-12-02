@@ -8,7 +8,7 @@ CREATE TABLE Customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) UNIQUE,
+    email VARCHAR(100) UNIQUE
 );
 
 -- Accounts (Linked to Customers)
@@ -26,6 +26,6 @@ CREATE TABLE Transactions (
     amount DECIMAL(10, 2) NOT NULL,
     transaction_type VARCHAR(10) DEFAULT "Personal",
     transaction_date DATETIME DEFAULT NOW(),
-    FOREIGN KEY (account_id) REFERENCES Accounts(account_id)
+    FOREIGN KEY (account_id) REFERENCES Accounts(account_id),
     CHECK (amount > 0) -- Basic Fraud Security: No Negative Transaction
 );
