@@ -18,3 +18,14 @@ CREATE TABLE Accounts (
     balance DECIMAL(10, 2) DEFAULT 0.00,
     Foreign Key (customer_id) REFERENCES Customers(customer_id)
 );
+
+-- Transactions (Linked to Accounts and Basic Fraud Security)
+CREATE TABLE Transactions (
+    transaction_id INT PRIMARY KEY AUTO_INCREMENT,
+    account_id INT,
+    amount DECIMAL(10, 2) NOT NULL,
+    transaction_type VARCHAR(10) DEFAULT "Personal",
+    transaction_date DATETIME DEFAULT NOW(),
+    FOREIGN KEY (account_id) REFERENCES Accounts(account_id)
+    CHECK (amount > 0) -- Basic Fraud Security: No Negative Transaction
+);
