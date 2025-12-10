@@ -29,3 +29,11 @@ CREATE TABLE Transactions (
     FOREIGN KEY (account_id) REFERENCES Accounts(account_id),
     CHECK (amount > 0) -- Basic Fraud Security: No Negative Transaction
 );
+
+-- Sample Inputs
+INSERT INTO Customers (first_name, last_name, email)
+VALUES  ("Shane","Job","shanejob@mail.com"),
+        ("Leonardo","Caputo","leonardocaputo@mail.com"),
+        ("Robert","Luckey","robertluckey@mail.com"),
+        ("Jane","Doe","sads432cdffg@tempmail.com"),
+        ("Courtney","Lord","courtneylord@mail.com");
