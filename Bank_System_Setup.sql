@@ -4,6 +4,7 @@
 -- Creating Database
 CREATE DATABASE Bank_System;
 
+-- Customers
 CREATE TABLE Customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
@@ -37,3 +38,10 @@ VALUES  ("Shane","Job","shanejob@mail.com"),
         ("Robert","Luckey","robertluckey@mail.com"),
         ("Jane","Doe","sads432cdffg@tempmail.com"),
         ("Courtney","Lord","courtneylord@mail.com");
+
+INSERT INTO Accounts (customer_id, balance)
+VALUES  (1, 8294.13)
+        (2, 128216.50)
+        (3, 25045.45)
+        (4, 0.00)
+        (5, 1223414.25)
