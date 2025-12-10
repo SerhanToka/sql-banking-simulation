@@ -49,10 +49,22 @@ VALUES  (1, 8294.13),
 -- Fraud Scenario
 -- Test transaction for account activity
 INSERT INTO Transactions (account_id, amount, transaction_type, transaction_date)
-VALUES (4, 1.00, 'Deposit', '2023-10-26 14:00:00');
+VALUES (4, 1.00, "Deposit", "2023-10-26 14:00:00");
 -- Placement of stolen money
 INSERT INTO Transactions (account_id, amount, transaction_type, transaction_date)
-VALUES (4, 48500.00, 'Deposit', '2023-10-26 14:05:00');
+VALUES (4, 48500.00, "Deposit", "2023-10-26 14:05:00");
 -- Layering
 INSERT INTO Transactions (account_id, amount, transaction_type, transaction_date)
-VALUES (4, 48000.00, 'Withdraw', '2023-10-26 14:15:00');
+VALUES (4, 48000.00, "Withdraw", "2023-10-26 14:15:00");
+-- False Positive
+INSERT INTO Transactions (account_id, amount, transaction_type, transaction_date)
+VALUES (5, 100000.00, "Deposit", "2023-10-25 09:00:00");
+-- Security Test for Negative Balance (It should return an error)
+INSERT INTO Transactions (account_id, amount, transaction_type)
+VALUES (1, -500.00, 'Withdraw');
+
+-- Standart Transactions
+INSERT INTO Transactions (account_id, amount, transaction_type, transaction_date)
+VALUES  (1, 350.50, "Withdraw", "2023-10-24 18:30:00"),
+        (2, 25000.00, "Deposit", "2023-10-01 08:00:00"),
+        (3, 12000.00, "Withdraw", "2023-10-02 10:00:00");
